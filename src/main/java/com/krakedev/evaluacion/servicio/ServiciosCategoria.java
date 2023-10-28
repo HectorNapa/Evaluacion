@@ -3,7 +3,6 @@ package com.krakedev.evaluacion.servicio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Time;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,21 +1,14 @@
 package com.krakedev.evaluacion.servicio;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.krakedev.evaluacion.excepciones.KrakeException;
 import com.krakedev.evaluacion.utils.ConexionBDD;
-import com.krakedev.evaluaciones.entidades.Categoria;
 import com.krakedev.evaluaciones.entidades.Producto;
 
 public class ServiciosProducto {
@@ -53,14 +46,17 @@ public class ServiciosProducto {
 		}
 	}
 
-	public static void actualizar(Categoria categoria) throws KrakeException {
+	public static void actualizar(Producto producto) throws KrakeException {
 		Connection coneccion = null;
 		PreparedStatement ps = null;
 		try {
 			coneccion = ConexionBDD.conectar();
-			ps = coneccion.prepareStatement("UPDATE categorias SET nombre=? WHERE id=?");
-			ps.setString(1, categoria.getNombre());
-			ps.setString(2, categoria.getId());
+			ps = coneccion.prepareStatement("UPDATE producto SET nombre=?, precioVenta=?, precioCompra=?, IdCategoria=?  WHERE id=?");
+			ps.setString(1, producto.getId());
+			ps.setString(2, producto.getNombre());
+			ps.setBigDecimal(3, producto.getPrecioVenta());
+			ps.setBigDecimal(4, producto.getPrecioCompra());
+			ps.setString(5, producto.getIdCategoria().getId());
 			ps.executeUpdate();
 
 		} catch (Exception e) {
