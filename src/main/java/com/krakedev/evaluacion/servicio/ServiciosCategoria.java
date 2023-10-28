@@ -15,7 +15,6 @@ import com.krakedev.evaluaciones.entidades.Categoria;
 public class ServiciosCategoria {
 	private static final Logger LOGGER= LogManager.getLogger(ServiciosCategoria.class);
 
-
 	public static void insertar(Categoria categoria) throws KrakeException{
 		Connection con=null;
 		PreparedStatement ps= null;

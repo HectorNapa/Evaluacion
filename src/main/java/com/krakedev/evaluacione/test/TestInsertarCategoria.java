@@ -7,7 +7,7 @@ import com.krakedev.evaluaciones.entidades.Categoria;
 public class TestInsertarCategoria {
 
 	public static void main(String[] args) {
-		Categoria cater= new Categoria("COO8","Picaditas");
+		Categoria cater= new Categoria("COO9","Picaditas");
 		try {
 			ServiciosCategoria.insertar(cater);
 		} catch (KrakeException e) {
